@@ -2,6 +2,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  margin-top: 10px;
 
   width: 100%;
   height: 48px;
@@ -18,6 +19,11 @@
 .flexItem {
   display: flex;
   pointer-events: auto;
+}
+
+.flexItem_name {
+  font-family: fantasy;
+  font-size: larger;
 }
 
 .box {
@@ -37,3 +43,5 @@
   }
   transition: background-color 200ms ease;
 }
+
+

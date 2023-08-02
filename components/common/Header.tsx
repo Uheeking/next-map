@@ -13,11 +13,12 @@ const HeaderComponent = ({ rightElements }: Props) => {
       <div className={styles.flexItem}>
         <Link href="/" className={styles.box}>
           <Image
-            src="/inflearn.png"
-            width={110}
-            height={20}
+            src="/memo.png"
+            width={40}
+            height={40}
             alt="인프런 로고"
           />
+          <span className={styles.flexItem_name}>Uheeking</span>
         </Link>
       </div>
       {rightElements && <div className={styles.flexItem}>{rightElements}</div>}
