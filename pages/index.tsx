@@ -1,13 +1,11 @@
 import { Fragment, useEffect } from 'react';
-import Header from '../components/common/Header';
-import styles from '../styles/header.module.scss';
-import Link from 'next/link';
-import { VscFeedback } from 'react-icons/vsc';
-import { AiOutlineShareAlt } from 'react-icons/ai';
-import MapSection from '../components/home/MapSection';
-import useStores from '../hooks/useStores';
-import { Store } from '../types/store';
 import { NextPage } from 'next';
+import Header from '../components/home/Header';
+import MapSection from '../components/home/MapSection';
+import DetailSection from '../components/home/DetailSection';
+import { Store } from '../types/store';
+import useStores from '../hooks/useStores';
+// import { NextSeo } from 'next-seo';
 
 interface Props {
   stores: Store[];
@@ -22,36 +20,38 @@ const Home: NextPage<Props> = ({ stores }) => {
 
   return (
     <Fragment>
-      <Header
-        rightElements={[
-          <button
-            onClick={() => {
-              alert('복사!');
-            }}
-            className={styles.box}
-            style={{ marginRight: 8 }}
-            key="button"
-          >
-            <AiOutlineShareAlt size={20} />
-          </button>,
-          <Link href="/feedback" className={styles.box} key="link">
-            <VscFeedback size={20} />
-          </Link>,
-        ]}
-      />
-      <main style={{ width: '100%', height: '100%' }}>
+      {/* <NextSeo
+        title="매장 지도"
+        description="Next.js 시작하기 강의를 위한 매장 지도 서비스입니다."
+        canonical="https://inflearn-nextjs.vercel.app"
+        openGraph={{
+          url: 'https://inflearn-nextjs.vercel.app',
+        }}
+      /> */}
+      <Header />
+      <main
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+        }}
+      >
         <MapSection />
+        <DetailSection />
       </main>
     </Fragment>
   );
-}
+};
 export default Home;
 
-export async function getStaticProps() {
-  const stores = (await import('../public/stores.json')).default;
+// export async function getStaticProps() {
+//   const stores = await fetch(
+//     `${process.env.NEXT_PUBLIC_API_URL}/api/stores`
+//   ).then((response) => response.json());
 
-  return{
-    props: {stores},
-    revalidate : 60 * 60
-  }
-}
+//   return {
+//     props: { stores },
+//     revalidate: 60 * 60,
+//   };
+// }
