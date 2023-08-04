@@ -15,23 +15,23 @@ const useMap = () => {
     mutate(MAP_KEY, map);
   }, []);
 
-//   const resetMapOptions = useCallback(() => {
-//     /** https://navermaps.github.io/maps.js.ncp/docs/naver.maps.Map.html#morph__anchor */
-//     map.morph(new naver.maps.LatLng(...INITIAL_CENTER), INITIAL_ZOOM);
-//   }, [map]);
+  const resetMapOptions = useCallback(() => {
+    /** https://navermaps.github.io/maps.js.ncp/docs/naver.maps.Map.html#morph__anchor */
+    map.morph(new naver.maps.LatLng(...INITIAL_CENTER), INITIAL_ZOOM);
+  }, [map]);
 
-//   const getMapOptions = useCallback(() => {
-//     const mapCenter = map.getCenter();
-//     const center: Coordinates = [mapCenter.lat(), mapCenter.lng()];
-//     const zoom = map.getZoom();
+  const getMapOptions = useCallback(() => {
+    const mapCenter = map.getCenter();
+    const center: Coordinates = [mapCenter.lat(), mapCenter.lng()];
+    const zoom = map.getZoom();
 
-//     return { center, zoom };
-//   }, [map]);
+    return { center, zoom };
+  }, [map]);
 
   return {
     initializeMap,
-    // resetMapOptions,
-    // getMapOptions,
+    resetMapOptions,
+    getMapOptions,
   };
 };
 export default useMap;
