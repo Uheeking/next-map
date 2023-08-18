@@ -47,7 +47,6 @@ const StoreDetail: NextPage<Props> = ({ store }) => {
 };
 export default StoreDetail;
 
-/** https://nextjs.org/docs/basic-features/data-fetching/get-static-paths */
 export const getStaticPaths: GetStaticPaths = async () => {
   const stores = (await import('../public/stores.json')).default;
   const paths = stores.map((store) => ({ params: { name: store.name } }));
