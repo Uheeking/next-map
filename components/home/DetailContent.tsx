@@ -80,4 +80,3 @@ const DetailContent = ({ currentStore, expanded }: Props) => {
   );
 };
 export default DetailContent;
-
