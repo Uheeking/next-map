@@ -5,7 +5,7 @@ import MapSection from '../components/home/MapSection';
 import DetailSection from '../components/home/DetailSection';
 import { Store } from '../types/store';
 import useStores from '../hooks/useStores';
-// import { NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   stores: Store[];
@@ -20,14 +20,14 @@ const Home: NextPage<Props> = ({ stores }) => {
 
   return (
     <Fragment>
-      {/* <NextSeo
+      <NextSeo
         title="매장 지도"
         description="Next.js 시작하기 강의를 위한 매장 지도 서비스입니다."
-        canonical="https://inflearn-nextjs.vercel.app"
-        openGraph={{
-          url: 'https://inflearn-nextjs.vercel.app',
-        }}
-      /> */}
+        // canonical="https://inflearn-nextjs.vercel.app"
+        // openGraph={{
+        //   url: 'https://inflearn-nextjs.vercel.app',
+        // }}
+      />
       <Header />
       <main
         style={{
@@ -45,13 +45,13 @@ const Home: NextPage<Props> = ({ stores }) => {
 };
 export default Home;
 
-// export async function getStaticProps() {
-//   const stores = await fetch(
-//     `${process.env.NEXT_PUBLIC_API_URL}/api/stores`
-//   ).then((response) => response.json());
+export async function getStaticProps() {
+  const stores = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/stores`
+  ).then((response) => response.json());
 
-//   return {
-//     props: { stores },
-//     revalidate: 60 * 60,
-//   };
-// }
+  return {
+    props: { stores },
+    revalidate: 60 * 60,
+  };
+}
