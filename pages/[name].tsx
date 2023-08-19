@@ -5,7 +5,7 @@ import DetailHeader from '../components/home/DetailHeader';
 import DetailContent from '../components/home/DetailContent';
 import { useRouter } from 'next/router';
 import useCurrentStore from '../hooks/useCurrentStore';
-import { NextSeo } from 'next-seo';
+// import { NextSeo } from 'next-seo';
 
 interface Props {
   store: Store;
@@ -26,14 +26,14 @@ const StoreDetail: NextPage<Props> = ({ store }) => {
 
   return (
     <>
-      <NextSeo
+      {/* <NextSeo
         title={store.name}
-        description="매장 상세 페이지입니다."
-        canonical={`https://next-map-lemon.vercel.app/${store.name}`}
+        description="Next.js 시작하기 강의를 위한 매장 상세 페이지입니다."
+        canonical={`https://inflearn-nextjs.vercel.app/${store.name}`}
         openGraph={{
-          url: `https://next-map-lemon.vercel.app/${store.name}`,
+          url: `https://inflearn-nextjs.vercel.app/${store.name}`,
         }}
-      />
+      /> */}
       <div className={`${styles.detailSection} ${styles.expanded}`}>
         <DetailHeader
           currentStore={store}

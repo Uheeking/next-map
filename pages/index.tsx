@@ -1,11 +1,11 @@
-import { Fragment, useEffect } from "react";
-import { NextPage } from "next";
-import Header from "../components/home/Header";
-import MapSection from "../components/home/MapSection";
-import DetailSection from "../components/home/DetailSection";
-import { Store } from "../types/store";
-import useStores from "../hooks/useStores";
-import { NextSeo } from "next-seo";
+import { Fragment, useEffect } from 'react';
+import { NextPage } from 'next';
+import Header from '../components/home/Header';
+import MapSection from '../components/home/MapSection';
+import DetailSection from '../components/home/DetailSection';
+import { Store } from '../types/store';
+import useStores from '../hooks/useStores';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   stores: Store[];
@@ -22,19 +22,19 @@ const Home: NextPage<Props> = ({ stores }) => {
     <Fragment>
       <NextSeo
         title="매장 지도"
-        description="매장 지도 서비스입니다."
-        canonical="https://next-map-lemon.vercel.app/"
-        openGraph={{
-          url: "https://next-map-lemon.vercel.app/",
-        }}
+        description="Next.js 시작하기 강의를 위한 매장 지도 서비스입니다."
+        // canonical="https://inflearn-nextjs.vercel.app"
+        // openGraph={{
+        //   url: 'https://inflearn-nextjs.vercel.app',
+        // }}
       />
       <Header />
       <main
         style={{
-          position: "relative",
-          width: "100%",
-          height: "100%",
-          overflow: "hidden",
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
         }}
       >
         <MapSection />
@@ -46,7 +46,7 @@ const Home: NextPage<Props> = ({ stores }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const stores = (await import("../public/stores.json")).default;
+  const stores = (await import('../public/stores.json')).default;
 
   return {
     props: { stores },
