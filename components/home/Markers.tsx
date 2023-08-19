@@ -58,7 +58,6 @@ export function generateStoreMarkerIcon(
   markerIndex: number,
   isSelected: boolean
 ): ImageIcon {
-  /** https://navermaps.github.io/maps.js.ncp/docs/tutorial-8-marker-retina-sprite.example.html */
   return {
     url: isSelected ? 'images/markers-selected.png' : 'images/markers.png',
     size: new naver.maps.Size(SCALED_MARKER_WIDTH, SCALED_MARKER_HEIGHT),
